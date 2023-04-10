@@ -7,14 +7,18 @@ import { ActivoContextProvider } from './context/ActivoProvider'
 
 function App() {
   return (
-    <ActivoContextProvider>
+    <div className="bg-zinc-900 h-screen">
       <Navbar/>
-      <Routes>
-        <Route path="/" element={<ActivoPage/>} />
-        <Route path="/new" element={<ActivoForm/>} />
-        <Route path="/edit/:id" element={<ActivoForm/>} />
-      </Routes>    
-    </ActivoContextProvider>
+        <div className='container mx-auto py-4'>
+          <ActivoContextProvider>
+            <Routes>
+              <Route path="/" element={<ActivoPage/>} />
+              <Route path="/new" element={<ActivoForm/>} />
+              <Route path="/edit/:id" element={<ActivoForm/>} />
+            </Routes>    
+          </ActivoContextProvider>
+        </div>
+    </div>
   )
 }
 

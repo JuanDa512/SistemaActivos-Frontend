@@ -37,9 +37,6 @@ function ActivoForm() {
 
   return (
     <div>
-
-        <h1>{params.id ? "Editar Activo" : "Registrar Activo"}</h1>
-
         <Formik
             initialValues={activo}
             enableReinitialize={true}
@@ -47,10 +44,10 @@ function ActivoForm() {
                 console.log(values)
                 if (params.id) {
                     await updateActivo(params.id, values)
-                    navigate("/");
                 } else {
                     await createActivos(values)
                 }
+                navigate("/");
                 setActivo({
                     nombre: "",
                     descripcion:"",
@@ -60,29 +57,33 @@ function ActivoForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit}>
-                    <label>Nombre del Activo</label>
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-10">
+                    <h1 className='text-xl font-bold uppercase text-center'>{params.id ? "Editar Activo" : "Registrar Activo"}</h1>
+                    <label className='block'>Nombre del Activo</label>
                     <input 
                         type='text' 
                         name="nombre" 
                         placeholder='Nombre del Activo'
+                        className="px-2 py-1 rounded-sm w-full"
                         onChange={handleChange}
                         value={values.nombre}
                     ></input>
 
-                    <label>Descripcion del activo</label>
+                    <label className='block'>Descripcion del activo</label>
                     <textarea 
                         name='descripcion' 
                         rows="3" 
                         placeholder='Descripcion del Activo'
+                        className="px-2 py-1 rounded-sm w-full"
                         onChange={handleChange}
                         value={values.descripcion}
                     ></textarea>
 
-                    <label>Tipo de Activo</label>
+                    <label className='block'>Tipo de Activo</label>
                     <select type='text'
                         name="tipo" 
                         placeholder='Tipo de Activo' 
+                        className="px-2 py-1 rounded-sm w-full"
                         onChange={handleChange} 
                         value={values.tipo}>
                         <option value="" disabled>seleccione el tipo</option>
@@ -91,26 +92,27 @@ function ActivoForm() {
                         <option value="hola 3">Hola 3</option>
                     </select>
 
-                    <label>Valor del Activo (Bs)</label>
+                    <label className='block'>Valor del Activo (Bs)</label>
                     <input 
                         type='number' 
                         name="valor_compra" 
                         placeholder='Valor del Activo' 
+                        className="px-2 py-1 rounded-sm w-full"
                         step="any"
                         onChange={handleChange}
                         value={values.valor_compra}
                     ></input>
 
-                    <label>Responsable del Activo</label>
+                    <label className='block'>Responsable del Activo</label>
                     <input 
                         type='text' 
                         name="responsable" 
                         placeholder='Responsable del Activo'
+                        className="px-2 py-1 rounded-sm w-full"
                         onChange={handleChange}
                         value={values.responsable}
                     ></input>
-
-                    <button type='submit' disabled={isSubmitting}>
+                    <button type='submit' disabled={isSubmitting} className=' bg-indigo-500 px-2 py-1 text-white w-full rounded-md my-2'>
                         {isSubmitting ? "Guardando" : "Guardar"}
                     </button>
                 </Form>
