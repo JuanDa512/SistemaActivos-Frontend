@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, Formik } from 'formik'
 import { useActivo } from '../context/ActivoProvider'
 import { useNavigate, useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar'
 
 
 function ActivoForm() {
@@ -37,6 +38,7 @@ function ActivoForm() {
 
   return (
     <div>
+        <Navbar/>
         <Formik
             initialValues={activo}
             enableReinitialize={true}

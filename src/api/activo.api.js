@@ -19,3 +19,6 @@ export const changeEstadoActivo = async (id, estado) =>
     await axios.put(`http://localhost:4000/activos/${id}`, {
         estado,
     });
+
+export const login = async (username, password) => 
+    await axios.post(`http://localhost:4000/login`, {username, password});

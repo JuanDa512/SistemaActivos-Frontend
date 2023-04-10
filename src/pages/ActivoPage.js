@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import ActivoCard from '../components/ActivoCard'
 import { useActivo } from '../context/ActivoProvider'
+import Navbar from '../components/Navbar'
 
 function ActivoPage() {
     
@@ -21,6 +22,7 @@ function ActivoPage() {
     
   return (
     <div>
+        <Navbar/>
         <h1 className="text-5xl text-white font-bold text-center">Activos</h1>
         <div className="grid grid-cols-3 gap-2">
             {renderMain()}
