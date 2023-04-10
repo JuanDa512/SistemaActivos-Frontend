@@ -1,22 +1,22 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-import { getActivosRequest } from '../api/activo.api'
+import { useEffect } from 'react'
 import ActivoCard from '../components/ActivoCard'
+import { useActivo } from '../context/ActivoProvider'
 
 function ActivoPage() {
     
-    const [ activos, setActivos ] = useState([])
+    const { activos, loadActivos } = useActivo(); 
 
     useEffect(() => {
-        async function loadActivos() {
-            const response = await getActivosRequest()
-            setActivos(response.data);
-        }
-        loadActivos() 
-    }, [])
+        loadActivos(); 
+    });
     
     function renderMain() {
-        return activos.map((activo) => <ActivoCard activo={activo} key={activo.id} />)
+        if (activos.length === 0) {
+            return <h1> No hay activos registrados</h1>            
+        } else {
+            return activos.map((activo) => <ActivoCard activo={activo} key={activo.id} />)
+        }
     }
     
   return (

@@ -1,15 +1,15 @@
 import React from 'react'
-import { deleteActivoRequest } from '../api/activo.api'
+
+import { useActivo } from '../context/ActivoProvider';
+import { useNavigate } from 'react-router-dom';
 
 function ActivoCard({ activo }) {
 
-    const handleDelete = async (id) => {
-        try {
-            const response = await deleteActivoRequest(id);
-            console.log(response)
-        } catch (error) {
-            console.error(error)            
-        }
+    const { deleteActivos, updateEstadoActivo } = useActivo();
+    const navigate = useNavigate();
+
+    const handleDone = async () => {
+        await updateEstadoActivo(activo.id)
     }
 
   return (
@@ -21,8 +21,9 @@ function ActivoCard({ activo }) {
         <p>{activo.responsable}</p>
         <span>{activo.estado === 0 ? "✔️" : "❌"}</span>
         <span>{activo.fecha_compra}</span>
-        <button>Editar Activo</button>
-        <button onClick={() => handleDelete(activo.id)}>Baja Activo</button>
+        <button onClick={() => navigate(`/edit/${activo.id}`) }>Editar Activo</button>
+        <button onClick={() => deleteActivos(activo.id)}>Baja Activo</button>
+        <button onClick={() => handleDone(activo.estado)}>Cambio de Estado</button>
     </div>
   )
 }
