@@ -26,7 +26,7 @@ function Login() {
                         contrasena: "",
                     });
                 } else {
-                    navigate("/");
+                    navigate("/activos");
                 }
                 
             }}>

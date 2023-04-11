@@ -49,7 +49,7 @@ function ActivoForm() {
                 } else {
                     await createActivos(values)
                 }
-                navigate("/");
+                navigate("/activos");
                 setActivo({
                     nombre: "",
                     descripcion:"",

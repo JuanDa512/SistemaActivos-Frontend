@@ -4,6 +4,7 @@ import ActivoPage from './pages/ActivoPage'
 import ActivoForm from './pages/ActivoForm'
 import { ActivoContextProvider } from './context/ActivoProvider'
 import Login from './pages/Login'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
         <div className='container mx-auto py-4'>
           <ActivoContextProvider>
             <Routes>
-              <Route path="/" element={<ActivoPage/>} />
-              <Route path="/login" element={<Login/>} />
+              <Route path="/" element={<Login/>} />
+              <Route path="/activos" element={<ActivoPage/>} />
+              <Route path="/home" element={<HomePage/>} />
               <Route path="/new" element={<ActivoForm/>} />
               <Route path="/edit/:id" element={<ActivoForm/>} />
             </Routes>    
