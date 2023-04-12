@@ -5,6 +5,9 @@ import ActivoForm from './pages/ActivoForm'
 import { ActivoContextProvider } from './context/ActivoProvider'
 import Login from './pages/Login'
 import HomePage from './pages/HomePage'
+import BusquedaPage from './pages/BusquedaPage'
+import ActivosMenu from './pages/ActivosMenu'
+import MonitoreoPage from './pages/MonitoreoPage'
 
 function App() {
   return (
@@ -13,10 +16,13 @@ function App() {
           <ActivoContextProvider>
             <Routes>
               <Route path="/" element={<Login/>} />
-              <Route path="/activos" element={<ActivoPage/>} />
               <Route path="/home" element={<HomePage/>} />
-              <Route path="/new" element={<ActivoForm/>} />
+              <Route path="/menuactivos" element={<ActivosMenu/>} />
+              <Route path="/menumonitoreo" element={<MonitoreoPage/>} />
+              <Route path="/activos" element={<ActivoPage/>} />
+              <Route path="/newActivo" element={<ActivoForm/>} />
               <Route path="/edit/:id" element={<ActivoForm/>} />
+              <Route path="/busqueda" element={<BusquedaPage/>} />
             </Routes>    
           </ActivoContextProvider>
         </div>

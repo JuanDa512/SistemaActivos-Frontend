@@ -49,7 +49,7 @@ function ActivoForm() {
                 } else {
                     await createActivos(values)
                 }
-                navigate("/activos");
+                navigate("/menuactivos");
                 setActivo({
                     nombre: "",
                     descripcion:"",
@@ -59,7 +59,7 @@ function ActivoForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-10">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-52">
                     <h1 className='text-xl font-bold uppercase text-center'>{params.id ? "Editar Activo" : "Registrar Activo"}</h1>
                     <label className='block'>Nombre del Activo</label>
                     <input 

@@ -26,12 +26,12 @@ function Login() {
                         contrasena: "",
                     });
                 } else {
-                    navigate("/activos");
+                    navigate("/home");
                 }
                 
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-yellow-300 max-w-sm rounded-md p-4 mx-auto mt-56">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-64">
                     <div>
                         <label className='block'>Usuario</label>
                         <input 
