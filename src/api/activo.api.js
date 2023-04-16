@@ -22,3 +22,6 @@ export const changeEstadoActivo = async (id, estado) =>
 
 export const login = async (username, password) => 
     await axios.post(`http://localhost:4000/login`, {username, password});
+
+export const getTipoRequest = async () => 
+    await axios.get('http://localhost:4000/tipos');

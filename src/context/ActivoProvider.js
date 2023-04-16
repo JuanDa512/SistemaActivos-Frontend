@@ -36,6 +36,7 @@ export const ActivoContextProvider = ({ children }) => {
 
     const createActivos = async (activo) => {
         try {
+            
             const response = await createActivoRequest(activo);
             console.log(response);
         } catch (error) {
@@ -73,8 +74,6 @@ export const ActivoContextProvider = ({ children }) => {
             console.error(error)            
         }
     }
-
-    
 
     return <ActivoContext.Provider value={{ 
         activos, 
