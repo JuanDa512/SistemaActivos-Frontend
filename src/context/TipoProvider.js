@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { TipoContext } from './TipoContext';
-import { getTipoRequest } from '../api/activo.api';
+import { getTiposRequest } from '../api/activo.api';
 
 export const useTipo = () => {
     const context = useContext(TipoContext);
@@ -16,7 +16,7 @@ export const TipoContextProvider = ({ children }) => {
     const [ tipos, setTipos ] = useState([]);
 
     const loadTipos = async () => {
-        const response = await getTipoRequest()
+        const response = await getTiposRequest()
         setTipos(response.data);
     }
 

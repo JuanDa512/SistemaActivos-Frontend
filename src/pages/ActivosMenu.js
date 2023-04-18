@@ -14,7 +14,7 @@ function ActivosMenu() {
                 </a>     
             </div>
             <div className="max-w-sm rounded overflow-hidden shadow-lg ">   
-                <a href={"/menuactivos"} className='text-gray-800 hover:text-gray-400 duration-500'>
+                <a href={"/asignacionRFID"} className='text-gray-800 hover:text-gray-400 duration-500'>
                     <div className="px-6 py-4 bg-slate-100" >
                         Asignar RFID al Activo
                     </div>

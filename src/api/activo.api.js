@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Activos
 export const getActivosRequest = async () => 
     await axios.get('http://localhost:4000/activos');
 
@@ -20,8 +21,15 @@ export const changeEstadoActivo = async (id, estado) =>
         estado,
     });
 
+//Login    
 export const login = async (username, password) => 
     await axios.post(`http://localhost:4000/login`, {username, password});
 
-export const getTipoRequest = async () => 
+
+//Tipos
+export const getTiposRequest = async () => 
     await axios.get('http://localhost:4000/tipos');
+
+//Areas
+export const getAreasRequest = async () => 
+    await axios.get('http://localhost:4000/areas');
