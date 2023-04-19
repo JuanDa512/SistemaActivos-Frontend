@@ -75,10 +75,10 @@ function AsignarRfid() {
                   usuarios.map((usuario) => (
                     <tr className="bg-white border border-gray-500" key={usuario.id}>
                       <td className="p-3 text-sm text-gray-700">{usuario.id}</td>
-                      <td className="p-3 text-sm text-gray-700">{usuario.id_rfid !== "" ? usuario.id_rfid : "Sin Id"}</td>
+                      <td className={usuario.id_rfid !== "x"  ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.id_rfid !== "x" ? usuario.id_rfid : "Sin Id"}</td>
                       <td className="p-3 text-sm text-gray-700">{usuario.nombre_activo}</td>
                       <td className="p-3 text-sm text-gray-700">{usuario.descripcion}</td>
-                      <td className="p-3 text-sm text-gray-700">{usuario.id_area !== 1 ? usuario.name_area : "Sin Asignar"}</td>
+                      <td className={usuario.name_area ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.name_area ? usuario.name_area : "Sin Asignar"}</td>
                       <td><button 
                         className="bg-sky-500 p-3 text-sm text-gray-700"
                         onClick={() => navigate(`/asignarRFID/${usuario.id}`) }>Actualizar

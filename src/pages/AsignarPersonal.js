@@ -2,11 +2,14 @@
 import { useEffect, useState } from "react";
 import { getActivosRequest } from "../api/activo.api";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
-function BusquedaPage() {
+function AsignarPersonal() {
   const [usuarios, setUsuarios] = useState([]);
   const [tablaUsuarios, setTablaUsuarios] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+
+  const navigate = useNavigate();
 
   const peticionGet = async () => {
     const response = await getActivosRequest();
@@ -44,13 +47,13 @@ function BusquedaPage() {
   return (
     <div>
       <Navbar/>
-        <div className="bg-slate-300 max-w-full rounded-md p-4 mx-auto mt-32">
+        <div className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-32">
           <div className="mb-10" >
-            <label className="text-xl mb-2 float-left">Lista de Activos</label>
+            <label className="text-xl mb-2 float-left">Asignacion del activo al personal</label>
             <input
               className="w-2/5 float-right"
               value={busqueda}
-              placeholder="Búsqueda por Activo o Tipo"
+              placeholder="Búsqueda por Nombre"
               onChange={handleChange}
             />
           </div>
@@ -62,12 +65,8 @@ function BusquedaPage() {
                   <th className="p-3 text-sm font-semibold tracking-wide text-left">ID</th>
                   <th className="p-3 text-sm font-semibold tracking-wide text-left">Activo</th>
                   <th className="p-3 text-sm font-semibold tracking-wide text-left">Descripcion</th>
-                  <th className="p-3 text-sm font-semibold tracking-wide text-left">Valor (Bs)</th>
-                  <th className="p-3 text-sm font-semibold tracking-wide text-left">Fecha de Compra</th>
-                  <th className="p-3 text-sm font-semibold tracking-wide text-left">Tipo</th>
                   <th className="p-3 text-sm font-semibold tracking-wide text-left">Persona Asignada</th>
-                  <th className="p-3 text-sm font-semibold tracking-wide text-left">Cargo</th>
-                  <th className="p-3 text-sm font-semibold tracking-wide text-left">Area Asignada</th>
+                  <th className="p-3 text-sm font-semibold tracking-wide text-left"></th>
                 </tr>
               </thead>
               <tbody>
@@ -77,12 +76,11 @@ function BusquedaPage() {
                       <td className="p-3 text-sm text-gray-700">{usuario.id}</td>
                       <td className="p-3 text-sm text-gray-700">{usuario.nombre_activo}</td>
                       <td className="p-3 text-sm text-gray-700">{usuario.descripcion}</td>
-                      <td className="p-3 text-sm text-gray-700">{usuario.valor_compra}</td>
-                      <td className="p-3 text-sm text-gray-700">{usuario.fecha_compra}</td>
-                      <td className="p-3 text-sm text-gray-700">{usuario.tipo}</td>
-                      <td className={usuario.nombre ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.nombre ? usuario.nombre+" "+usuario.apellido : "Sin Asignar" } {}</td>
-                      <td className={usuario.cargo ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.cargo ? usuario.cargo : "Sin Asignar"}</td>
-                      <td className={usuario.name_area ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.name_area ? usuario.name_area : "Sin Asignar"}</td>
+                      <td className={usuario.nombre ? 'p-3 text-sm text-gray-700' : 'font-bold  p-3 text-sm text-indigo-500'}>{usuario.nombre ? usuario.nombre+" "+usuario.apellido : "Sin Asignar"}</td>
+                      <td><button 
+                        className="bg-sky-500 p-3 text-sm text-gray-700"
+                        onClick={() => navigate(`/asignarPersonal/${usuario.id}`) }>Actualizar
+                        </button></td>
                     </tr>
                   ))}
               </tbody>
@@ -93,4 +91,4 @@ function BusquedaPage() {
   );
 }
 
-export default BusquedaPage;
+export default AsignarPersonal;

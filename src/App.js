@@ -11,6 +11,9 @@ import { TipoContextProvider } from "./context/TipoProvider";
 import AsignarRfid from "./pages/AsignarRfid";
 import AsignarRfidForm from "./pages/AsignarRfidForm";
 import { AreaContextProvider } from "./context/AreaProvider";
+import AsignarPersonal from "./pages/AsignarPersonal";
+import AsignarPersonalForm from "./pages/AsignarPersonalForm";
+import { PersonalContextProvider } from "./context/PersonalProvider";
 
 function App() {
   return (
@@ -19,17 +22,21 @@ function App() {
         <ActivoContextProvider>
           <TipoContextProvider>
             <AreaContextProvider>
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/menuactivos" element={<ActivosMenu />} />
-                <Route path="/menumonitoreo" element={<MonitoreoPage />} />
-                <Route path="/asignacionRFID" element={<AsignarRfid />} />
-                <Route path="/newActivo" element={<ActivoForm />} />
-                <Route path="/edit/:id" element={<ActivoForm />} />
-                <Route path="/asignarRFID/:id" element={<AsignarRfidForm />} />
-                <Route path="/busqueda" element={<BusquedaPage />} />
-              </Routes>
+              <PersonalContextProvider>
+                <Routes>
+                  <Route path="/" element={<Login />} />
+                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/menuactivos" element={<ActivosMenu />} />
+                  <Route path="/menumonitoreo" element={<MonitoreoPage />} />
+                  <Route path="/asignacionRFID" element={<AsignarRfid />} />
+                  <Route path="/asignacionPersonal" element={<AsignarPersonal />} />
+                  <Route path="/newActivo" element={<ActivoForm />} />
+                  <Route path="/edit/:id" element={<ActivoForm />} />
+                  <Route path="/asignarRFID/:id" element={<AsignarRfidForm />} />
+                  <Route path="/asignarPersonal/:id" element={<AsignarPersonalForm />} />
+                  <Route path="/busqueda" element={<BusquedaPage />} />
+                </Routes>
+              </PersonalContextProvider>
             </AreaContextProvider>
           </TipoContextProvider>
         </ActivoContextProvider>

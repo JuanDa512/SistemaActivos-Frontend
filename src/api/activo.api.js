@@ -33,3 +33,7 @@ export const getTiposRequest = async () =>
 //Areas
 export const getAreasRequest = async () => 
     await axios.get('http://localhost:4000/areas');
+
+//Areas
+export const getPersonalRequest = async () => 
+    await axios.get('http://localhost:4000/personal');
