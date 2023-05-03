@@ -37,3 +37,9 @@ export const getAreasRequest = async () =>
 //Areas
 export const getPersonalRequest = async () => 
     await axios.get('http://localhost:4000/personal');
+
+//Usuarios
+export const getUserRequest = async (id) => 
+    await axios.get(`http://localhost:4000/usuarios/${id}`);
+export const updateUserRequest = async (id, newData) => 
+    await axios.put(`http://localhost:4000/usuarios/${id}`, newData);

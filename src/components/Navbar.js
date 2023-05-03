@@ -1,10 +1,28 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react'
+import { useUser } from '../context/UserProvider';
 
 const Navbar = () => {
 
-  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false)
+  const {getUser} = useUser();
+  const [user, setUser ] = useState({
+    id: 0,
+    username:"",
+    password: "",
+  });
+  const id = localStorage.getItem('user')
+  
+  useEffect(() => {
+    const loadUser = async () => {
+      const usuario = await getUser(id);
+      setUser({
+          id: usuario.id,
+          username: usuario.username,
+          password: usuario.password,
+      })
+    }
+    loadUser();
+  })
 
   return (
     <div className='shadow-md w-full fixed top-0 left-0'>
@@ -21,12 +39,25 @@ const Navbar = () => {
           <li className='md:ml-8 text-xl md:my-0 my-7'>
             <a href={"/menumonitoreo"} className='text-gray-800 hover:text-gray-400 duration-500'>MONITOREO</a>
           </li>
-          <li className='md:ml-8 text-xl md:my-0 my-7'>
-            <button className='bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500'
-               onClick={() => navigate("/")}
-               >Cerrar Session
+          <div className='relative flex flex-col items-center w-full h-full rounded pl-10'>
+            <button className='bg-blue-700 text-white p-2 w-32 flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white'
+              onClick={() => setIsOpen((prev) => !prev)}>
+              {user.username}
             </button>
-          </li>
+            {isOpen && (
+              <div className='bg-blue-600 absolute top-14 flex-col items-start rounded-lg p-2 w-32 text-white'>
+                <ul>
+                  <li className='hover:bg-blue-400'>
+                    <a href={`/editUsuario/${user.id}`}>Editar Perfil</a>
+                  </li>
+                  <li className='hover:bg-blue-400'>
+                    <a href={"/"}>Cerrar Sesion</a>
+                  </li>
+                </ul>
+              </div>
+            )}
+
+          </div>
         </ul>
       </div>
     </div>

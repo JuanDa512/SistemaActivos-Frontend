@@ -7,9 +7,11 @@ function Login() {
 
     const navigate = useNavigate();
     const [ usuario, setUsuario ] = useState({
+        id: 0,
         username: "",
         contrasena: ""
     });
+    localStorage.clear()
 
   return (
     <div>
@@ -25,7 +27,9 @@ function Login() {
                         username: "",
                         contrasena: "",
                     });
+                    
                 } else {
+                    localStorage.setItem('user', user[0].id)
                     navigate("/home");
                 }
                 

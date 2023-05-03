@@ -16,7 +16,7 @@ function ActivoForm() {
     const [ activo, setActivo ] = useState({
         nombre_activo: "",
         descripcion:"",
-        tipo: 0,
+        id_tipo_activo: 0,
         valor_compra: 0,
     })
 
@@ -26,9 +26,9 @@ function ActivoForm() {
             if (params.id) {
                 const activo = await getActivo(params.id);
                 setActivo({
-                    nombre_activo: activo.nombre,
+                    nombre_activo: activo.nombre_activo,
                     descripcion: activo.descripcion,
-                    tipo: activo.tipo,
+                    id_tipo_activo: activo.id_tipo_activo,
                     valor_compra: activo.valor_compra,
                 })
             }
@@ -45,17 +45,18 @@ function ActivoForm() {
             initialValues={activo}
             enableReinitialize={true}
             onSubmit={ async (values, actions) => {
-                console.log(values)
                 if (params.id) {
                     await updateActivo(params.id, values)
+                    navigate("/editactivos");
                 } else {
                     await createActivos(values)
+                    navigate("/menuactivos");
                 }
-                navigate("/menuactivos");
+                
                 setActivo({
                     nombre_activo: "",
                     descripcion:"",
-                    tipo: 0,
+                    id_tipo_activo: 0,
                     valor_compra: 0,
                 });
             }}>
@@ -84,11 +85,11 @@ function ActivoForm() {
 
                     <label className='block'>Tipo de Activo</label>
                     <select
-                        name="tipo" 
+                        name="id_tipo_activo" 
                         placeholder='Tipo de Activo' 
                         className="px-2 py-1 rounded-sm w-full"
                         onChange={handleChange} 
-                        value={values.tipo}>
+                        value={values.id_tipo_activo}>
                             {tipos.map(e => (
                                 <option key={e.id} value={e.id}>{e.tipo}</option>
                             ))}

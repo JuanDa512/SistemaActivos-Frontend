@@ -15,8 +15,7 @@ function AsignarPersonalForm() {
 
     const [ activo, setActivo ] = useState({
         id: 0,
-        id_rfid: "",
-        id_area: 0,
+        id_responsable: 0,
         nombre_activo: "",
         descripcion:"",
         valor_compra: 0,
@@ -27,8 +26,7 @@ function AsignarPersonalForm() {
             const activo = await getActivo(params.id);
             setActivo({
                 id: activo.id,
-                id_rfid: activo.id_rfid,
-                id_area: activo.id_area,
+                id_responsable: activo.id_responsable,
                 nombre_activo: activo.nombre_activo,
                 descripcion: activo.descripcion,
                 valor_compra: activo.valor_compra,
@@ -46,11 +44,10 @@ function AsignarPersonalForm() {
             onSubmit={ async (values, actions) => {
                 console.log(values)
                 await updateActivo(params.id, values)
-                navigate("/asignacionRFID");
+                navigate("/asignacionPersonal");
                 setActivo({
                     id: 0,
-                    id_rfid: "",
-                    id_area: 0,
+                    id_responsable: 0,
                     nombre_activo: "",
                     descripcion:"",
                     valor_compra: 0,
@@ -81,26 +78,30 @@ function AsignarPersonalForm() {
                         </table>
                     </div>
                     <div className='grid grid-cols-2 gap-2 grid-rows-2 mt-10'>
-                        <label className='p-1'>Seleccione el Area a Asignar:</label>
-                        <label className='p-1'>Ingrese el Codigo RFID:</label>
+                        <label className='p-1'>Seleccione a la persona a asignar:</label>
+                        <label className='p-1'>Cargo de la Persona:</label>
                         <select
-                            name="id_area" 
-                            placeholder='Seleccione el Area' 
+                            name="id_responsable" 
+                            placeholder='Seleccione Personal' 
                             className="px-2 py-1 rounded-sm w-full"
                             onChange={handleChange} 
-                            value={values.id_area}>
+                            value={values.id_responsable}>
                                 {personal.map(e => (
-                                    <option key={e.id} value={e.id}>{e.nombre}</option>
+                                    <option key={e.id} value={e.id}>{e.nombre} {e.apellido}</option>
                                 ))}
                         </select>
-                        <input 
-                            type='text' 
-                            name="id_rfid" 
-                            placeholder='Nombre del Activo'
+                        <select
+                            name="id_resposanble" 
+                            placeholder='Muestra Cargo' 
                             className="px-2 py-1 rounded-sm w-full"
-                            onChange={handleChange}
-                            value={values.id_rfid}
-                        ></input>
+                            disabled={true}
+                            onChange={handleChange} 
+                            value={values.id_responsable}>
+                                {personal.map(e => (
+                                    <option key={e.id} value={e.id}>{e.cargo}</option>
+                                ))}
+                        </select>
+                        
                     </div>
                         
                     <button type='submit' disabled={isSubmitting} className=' bg-indigo-500 px-2 py-1 text-white w-full rounded-md my-3'>
