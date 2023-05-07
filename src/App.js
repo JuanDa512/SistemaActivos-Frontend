@@ -17,6 +17,7 @@ import { PersonalContextProvider } from "./context/PersonalProvider";
 import ActivoPage from "./pages/ActivoPage";
 import { UserContextProvider } from "./context/UserProvider";
 import UserForm from "./pages/UserForm";
+import MonitoreoArea from "./pages/MonitoreoArea";
 
 function App() {
   return (
@@ -31,8 +32,8 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/editUsuario/:id" element={<UserForm />} />
-                    <Route path="/menuactivos" element={<ActivosMenu />} />
-                    <Route path="/menumonitoreo" element={<MonitoreoPage />} />
+                    
+                    <Route path="/menuactivos" element={<ActivosMenu />} />                   
                     <Route path="/asignacionRFID" element={<AsignarRfid />} />
                     <Route path="/asignacionPersonal" element={<AsignarPersonal />} />
                     <Route path="/newActivo" element={<ActivoForm />} />
@@ -40,7 +41,11 @@ function App() {
                     <Route path="/edit/:id" element={<ActivoForm />} />
                     <Route path="/asignarRFID/:id" element={<AsignarRfidForm />} />
                     <Route path="/asignarPersonal/:id" element={<AsignarPersonalForm />} />
+                    
                     <Route path="/busqueda" element={<BusquedaPage />} />
+
+                    <Route path="/menumonitoreo" element={<MonitoreoPage />} />
+                    <Route path="/monitoreoarea" element={<MonitoreoArea />} />
                   </Routes>
                 </PersonalContextProvider>
               </AreaContextProvider>

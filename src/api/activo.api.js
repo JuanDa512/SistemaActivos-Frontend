@@ -43,3 +43,6 @@ export const getUserRequest = async (id) =>
     await axios.get(`http://localhost:4000/usuarios/${id}`);
 export const updateUserRequest = async (id, newData) => 
     await axios.put(`http://localhost:4000/usuarios/${id}`, newData);
+
+export const getMonitoreoArea = async (data) => 
+    await axios.post('http://localhost:4000/monitoreoarea', data);
