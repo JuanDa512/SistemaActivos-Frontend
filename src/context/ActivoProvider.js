@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { changeEstadoActivo, getActivoRequest, getActivosRequest, updateActivoRequest } from '../api/activo.api'
+import { changeEstadoActivo, getActivoRequest, getActivoRfidRequest, getActivosAreaRequest, getActivosRequest, updateActivoRequest } from '../api/activo.api'
 import { deleteActivoRequest } from '../api/activo.api'
 import { createActivoRequest } from '../api/activo.api'
 import { ActivoContext } from './ActivoContext'
@@ -53,6 +53,24 @@ export const ActivoContextProvider = ({ children }) => {
         }
     }
 
+    const getActivoRfid = async (id) => {
+        try {
+            const response = await getActivoRfidRequest(id);
+            return response.data;
+        } catch (error) {
+            console.error(error)            
+        }
+    }
+
+    const getActivosArea = async (id_area) => {
+        try {
+            const response = await getActivosAreaRequest(id_area);
+            return response.data;
+        } catch (error) {
+            console.error(error)            
+        }
+    }
+
     const updateActivo = async (id, newData) => {
         try {
             const response = await updateActivoRequest(id, newData);
@@ -82,7 +100,9 @@ export const ActivoContextProvider = ({ children }) => {
         createActivos, 
         getActivo,
         updateActivo,
-        updateEstadoActivo
+        updateEstadoActivo,
+        getActivosArea,
+        getActivoRfid
         }}>
         { children }
     </ActivoContext.Provider>

@@ -18,6 +18,8 @@ import ActivoPage from "./pages/ActivoPage";
 import { UserContextProvider } from "./context/UserProvider";
 import UserForm from "./pages/UserForm";
 import MonitoreoArea from "./pages/MonitoreoArea";
+import LecturaMonitoreoArea from "./pages/LecturaMonitoreoArea";
+import Monitoreo from "./pages/Monitoreo";
 
 function App() {
   return (
@@ -45,7 +47,9 @@ function App() {
                     <Route path="/busqueda" element={<BusquedaPage />} />
 
                     <Route path="/menumonitoreo" element={<MonitoreoPage />} />
+                    <Route path="/monitoreo" element={<Monitoreo />} />
                     <Route path="/monitoreoarea" element={<MonitoreoArea />} />
+                    <Route path="/lecturaMonitoreo/:id_monitoreo/:id_area" element={<LecturaMonitoreoArea />} />
                   </Routes>
                 </PersonalContextProvider>
               </AreaContextProvider>

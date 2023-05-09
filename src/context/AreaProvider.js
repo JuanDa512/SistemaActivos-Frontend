@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { AreaContext } from './AreaContext';
-import { getAreasRequest } from '../api/activo.api';
+import { getAreaRequest, getAreasRequest } from '../api/activo.api';
 
 export const useArea = () => {
     const context = useContext(AreaContext);
@@ -19,10 +19,19 @@ export const AreaContextProvider = ({ children }) => {
         const response = await getAreasRequest()
         setAreas(response.data);
     }
+    const getArea = async (id) => {
+        try {
+            const response = await getAreaRequest(id);
+            return response.data;
+        } catch (error) {
+            console.error(error)            
+        }
+    }
 
     return <AreaContext.Provider value={{
         areas,
         loadAreas,
+        getArea
     }}>
         { children }
     </AreaContext.Provider>

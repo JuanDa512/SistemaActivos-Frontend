@@ -4,13 +4,15 @@ import Navbar from '../components/Navbar'
 import { useArea } from '../context/AreaProvider'
 import { useEffect } from 'react';
 import { getMonitoreoArea } from '../api/activo.api';
+import { useNavigate } from 'react-router-dom';
 
 function MonitoreoArea() {
 
     const { areas, loadAreas } = useArea();
+    const navigate = useNavigate();
     const [ lectura,  ] = useState({
         id_area: 0,
-        time: 30
+        time: 5
     })
 
     useEffect(() => {
@@ -25,7 +27,8 @@ function MonitoreoArea() {
             enableReinitialize={true}
             onSubmit={ async (values, actions) => {
                 const result = await getMonitoreoArea(values)
-                console.log(result)              
+                const datos = result.data
+                navigate(`/lecturaMonitoreo/${datos.id_monitoreo}/${datos.id_area_lectura}`)                          
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
                 <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-52">
@@ -44,8 +47,9 @@ function MonitoreoArea() {
                     </select>
 
                     <button type='submit' disabled={isSubmitting} className=' bg-indigo-500 px-2 py-1 text-white w-full rounded-md my-2'>
-                        {isSubmitting ? "Guardando" : "Guardar"}
+                        {isSubmitting ? "Lectura en Proceso" : "Comenzar Monitoreo"}
                     </button>
+                    
                 </Form>
             )}
         </Formik>
