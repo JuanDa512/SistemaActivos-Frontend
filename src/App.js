@@ -20,6 +20,7 @@ import UserForm from "./pages/UserForm";
 import MonitoreoArea from "./pages/MonitoreoArea";
 import LecturaMonitoreoArea from "./pages/LecturaMonitoreoArea";
 import Monitoreo from "./pages/Monitoreo";
+import DepreciacionPage from "./pages/DepreciacionPage";
 
 function App() {
   return (
@@ -43,7 +44,9 @@ function App() {
                     <Route path="/edit/:id" element={<ActivoForm />} />
                     <Route path="/asignarRFID/:id" element={<AsignarRfidForm />} />
                     <Route path="/asignarPersonal/:id" element={<AsignarPersonalForm />} />
-                    
+
+                    <Route path="/depreciacionPage" element={<DepreciacionPage />} />
+
                     <Route path="/busqueda" element={<BusquedaPage />} />
 
                     <Route path="/menumonitoreo" element={<MonitoreoPage />} />
