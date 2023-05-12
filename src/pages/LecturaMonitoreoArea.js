@@ -603,19 +603,19 @@ function LecturaMonitoreoArea() {
             <label className="text-xl mb-2 float-left font-bold">Monitoreo Terminado</label>
             <label className="text-xl mb-2 float-left">Area de Lectura: {area.name_area}</label>
             <button 
-                className="bg-blue-600 px-2 py-1 text-white" 
+                className="bg-blue-600 px-2 text-white" 
                 onClick={() => handleDone()}>Generar Estados
             </button>
             <PDFDownloadLink
               document={generarReporte()}
               fileName="ReporteMonitoreo.pdf">
-                <div className="bg-blue-600 mt-4 text-center">
+                <div className="bg-blue-600 mt-2 text-center">
                   <label className='p-2 text-white'> Generar Reporte </label>
                 </div>
             </PDFDownloadLink>
           </div>
           
-          <div className="mt-4">
+          <div className="mt-2">
             <label className="font-bold">Activos encontrados en el area de {area.name_area}</label>
             <table className="w-full">
               <thead className="bg-gray-50 border-b-2 border-gray-500">
@@ -643,7 +643,7 @@ function LecturaMonitoreoArea() {
             </table>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-2">
             <label className="font-bold">Activos no encontrados en el area de {area.name_area}</label>
             <table className="w-full">
               <thead className="bg-gray-50 border-b-2 border-gray-500">
@@ -671,7 +671,7 @@ function LecturaMonitoreoArea() {
             </table>
           </div>
     
-          <div className='mt-4'>
+          <div className='mt-2'>
             <label className="font-bold">Activos encontrados en el area de {area.name_area} pero pertenencen a otra Area</label>
             <table className="w-full">
               <thead className="bg-gray-50 border-b-2 border-gray-500">

@@ -5,7 +5,7 @@ function ActivosMenu() {
   return (
     <div>
         <Navbar/>
-        <div className='grid gap-4 grid-cols-2 grid-rows-3 bg-slate-300 max-w-xl rounded-md p-5 mx-auto mt-72'>
+        <div className='grid gap-4 grid-cols-2 grid-rows-3 bg-slate-300 max-w-xl rounded-md p-5 mx-auto mt-32'>
             <div className="max-w-sm rounded overflow-hidden shadow-lg ">   
                 <a href={"/newActivo"} className='text-gray-800 hover:text-gray-400 duration-500'>
                     <div className="px-6 py-4 bg-slate-100" >

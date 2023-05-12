@@ -61,7 +61,7 @@ function ActivoForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-52">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-32s">
                     <h1 className='text-xl font-bold uppercase text-center'>{params.id ? "Editar Activo" : "Registrar Activo"}</h1>
                     <label className='block'>Nombre del Activo</label>
                     <input 

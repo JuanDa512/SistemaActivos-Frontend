@@ -54,7 +54,7 @@ function AsignarPersonalForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-52">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-28">
                     <h1 className='text-xl font-bold uppercase text-center mb-5'>Asignacion del Activo</h1>
                     <div className='bg-white w-max'>
                         <h1 className='text-xl font-bold uppercase text-left'>Detalle del Activo a Asignar</h1>

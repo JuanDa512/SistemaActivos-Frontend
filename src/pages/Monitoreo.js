@@ -39,7 +39,7 @@ function Monitoreo() {
                 obtenerActivos(datos)      
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-28">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-24">
                     <h1 className='text-xl font-bold uppercase text-center'>Monitoreo Completo</h1>
                     <button type='submit' disabled={isSubmitting} className=' bg-indigo-500 px-2 py-1 text-white w-full rounded-md my-2'>
                         {isSubmitting ? "Lectura en Proceso" : "Comenzar Monitoreo"}
@@ -54,7 +54,7 @@ function Monitoreo() {
             </button>
         </div> 
         {isOpen && (
-            <div className="bg-slate-300  max-w-full rounded-md p-4 mx-auto mt-20">
+            <div className="bg-slate-300  max-w-full rounded-md p-4 mx-auto mt-14">
                 <label className="text-xl mb-2 float-left font-bold">Resultado del Monitoreo</label>
             <div className="mt-4">
                 <table className="w-full">

@@ -57,7 +57,7 @@ function AsignarRfidForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-52">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-32">
                     <h1 className='text-xl font-bold uppercase text-center mb-5'>Asignacion de Area y Codigo RFID</h1>
                     <div className='bg-white w-max'>
                         <h1 className='text-xl font-bold uppercase text-left'>Detalle del Activo</h1>

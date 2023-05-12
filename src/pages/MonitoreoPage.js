@@ -5,7 +5,7 @@ function MonitoreoPage() {
   return (
     <div>
         <Navbar/>
-        <div className='grid gap-4 grid-rows-2 bg-slate-300 max-w-sm rounded-md p-5 mx-auto mt-72 max-h-max'>
+        <div className='grid gap-4 grid-rows-2 bg-slate-300 max-w-sm rounded-md p-5 mx-auto mt-32 max-h-max'>
             <div className="max-w-sm rounded overflow-hidden shadow-lg ">   
                 <a href={"/monitoreo"} className='text-gray-800 hover:text-gray-400 duration-500'>
                     <div className="px-6 py-4 bg-slate-100" >

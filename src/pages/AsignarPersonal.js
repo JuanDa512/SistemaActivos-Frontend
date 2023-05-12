@@ -47,7 +47,7 @@ function AsignarPersonal() {
   return (
     <div>
       <Navbar/>
-        <div className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-32">
+        <div className="bg-slate-300 w-max rounded-md p-4 mx-auto mt-24">
           <div className="mb-10" >
             <label className="text-xl mb-2 float-left">Asignacion del activo al personal</label>
             <input

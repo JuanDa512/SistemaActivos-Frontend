@@ -85,8 +85,8 @@ function DepreciacionPage() {
             <PDFDownloadLink
                 document={<ReporteDepreciacion activos={activos} tipo={tipo} />}
                 fileName="ReporteDepreciacion.pdf">
-                    <div className="bg-blue-600 mt-4 text-center">
-                    <label className='p-2 text-white'> Generar Reporte </label>
+                    <div className="bg-indigo-500 px-2 py-1 text-white w-full rounded-md text-center">
+                    <label className='text-white'> Generar Reporte </label>
                     </div>
             </PDFDownloadLink>
             

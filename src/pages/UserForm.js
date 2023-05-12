@@ -44,7 +44,7 @@ function UserForm() {
                 });
             }}>
             {({ handleChange, handleSubmit, values, isSubmitting}) => (
-                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-52">
+                <Form onSubmit={handleSubmit} className="bg-slate-300 max-w-sm rounded-md p-4 mx-auto mt-24">
                     <h1 className='text-xl font-bold uppercase text-center'>Editar Datos de Usuario</h1>
                     <label className='block'>Nombre de Usuario</label>
                     <input 
