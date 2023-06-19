@@ -12,7 +12,7 @@ function MonitoreoArea() {
     const navigate = useNavigate();
     const [ lectura,  ] = useState({
         id_area: 0,
-        time: 5
+        time: 30
     })
 
     useEffect(() => {

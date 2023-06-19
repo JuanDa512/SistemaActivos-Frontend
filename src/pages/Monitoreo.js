@@ -11,7 +11,7 @@ function Monitoreo() {
     const { getActivoRfid } = useActivo();
 
     const [ lectura,  ] = useState({
-        time: 5
+        time: 30
     })
 
     const limpiardatos = () => {
